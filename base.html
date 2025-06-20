@@ -1,0 +1,116 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+
+        body {
+             margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: url('https://static.vecteezy.com/system/resources/previews/008/311/935/non_2x/the-illustration-graphic-consists-of-abstract-background-with-a-blue-gradient-dynamic-shapes-composition-eps10-perfect-for-presentation-background-website-landing-page-wallpaper-vector.jpg') no-repeat center center fixed;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+        
+
+        .auth-wrapper {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+            display: flex;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .auth-left {
+            background: linear-gradient(to bottom right, #c372d1, #8a69d6);
+            color: white;
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .auth-right {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .auth-right input {
+            border: none;
+            border-bottom: 2px solid #ccc;
+            border-radius: 0;
+            margin-bottom: 20px;
+            width: 100%;
+            padding: 10px;
+            transition: 0.3s;
+        }
+
+        .auth-right input:focus {
+            border-bottom-color: #c1a0e1;
+            outline: none;
+        }
+
+        .gradient-btn {
+            background: linear-gradient(to right, #a044ff, #6a3093);
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .gradient-btn:hover {
+            background: linear-gradient(to right, #2b9ed3, #a044ff);
+        }
+
+        .social-btn {
+            border: none;
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .alert {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    {% if messages %}
+      <div class="container position-absolute top-0 mt-3">
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
